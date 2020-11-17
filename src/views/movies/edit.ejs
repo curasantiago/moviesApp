@@ -1,0 +1,65 @@
+<%- include('../partials/header') %>
+
+
+<main class="main">
+    <div class="form-container">
+
+        <div class="box-login">
+            <h1> EDIT MOVIE </h1>
+            <img src="/images/movieimg.jpg" alt="login-img" class="movie-img">
+            
+        </div>    
+        <form action="/movies/edit/<%= editMovie.id %>?_method=PUT" method="POST" class="form">
+
+            
+            <% if (typeof errors != 'undefined') { %>
+                <ul>
+                    <% errors.forEach(error => { %>
+                        <li style="color:red "><%= error.msg %></li>   
+                    <% }) %>
+                </ul>    
+            <% } %>
+
+            <label for="title" class="label-create">Title</label>
+            <input type="text" name="title" placeholder="" class="form-input create-input" value="<%= editMovie.title %>">
+
+            <label for="rating" class="label-create">Rating</label>
+            <input type="text" name="rating" placeholder="" class="form-input create-input" value="<%= editMovie.rating %>">
+
+            <label for="awards" class="label-create">Awards</label>
+            <input type="text" name="awards" placeholder="" class="form-input create-input" value="<%= editMovie.awards %>">
+
+            <label for="release_date" class="label-create">Release Date</label>
+            <input type="date" name="release_date" placeholder="" class="form-input create-input" value="<%= moment(editMovie.release_date).add(1, 'days').format('YYYY-MM-DD') %>">
+
+            <label for="length" class="label-create">Length</label>
+            <input type="text" name="length" placeholder="" class="form-input create-input" value="<%= editMovie.length %>">
+
+            <label for="genre" class="label-create">Genres: </label>
+            <select name="genre_id" id="" class="form-input select-create">
+                <% genres.forEach(genre => { %>
+                        <% if (genre.id == editMovie.genre.id) { %>
+                            <option value="<%= genre.id %>" selected><%= genre.name %></option>
+                        <% } else { %>
+                            <option value="<%= genre.id %>"><%= genre.name %></option>
+                        <% } %>
+                <% }) %>
+            </select>
+
+            <label for="actors" class="label-create">Actors: </label>
+            <select name="actor_id" id="" class="form-input actor-create" multiple>
+                <% actors.forEach(actor => { %>
+                    <% if (editMovie.actors.some(movieActor => movieActor.id === actor.id)) { %>
+                        <option value="<%= actor.id %>" selected><%= actor.first_name %>  <%= actor.last_name %></option>
+                    <% } else { %>
+                        <option value="<%= actor.id %>"><%= actor.first_name %>  <%= actor.last_name %></option>
+                    <% } %>
+                <% }) %>
+            </select>
+
+            <button type="submit" class="sign-button">EDIT</button>
+        </form>
+    </div>
+</main>
+
+</html>

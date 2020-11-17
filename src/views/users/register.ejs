@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+
+<main class="main">
+    <div class="form-container">
+
+        <div class="box-login">
+            <h1> Sign Up </h1>
+            <img src="/images/movieimg.jpg" alt="login-img" class="movie-img">
+            
+        </div>    
+        <form action="/users/register" method="POST" class="form">
+
+            <% if (typeof errors != 'undefined') { %>
+                <ul>
+                    <% errors.forEach(error => { %>
+                        <li style="color:red "><%= error.msg %></li>   
+                    <% }) %>
+                </ul>    
+            <% } %>
+
+            <input type="text" name="name" id="" placeholder="Name.." class="form-input">
+
+            <input type="email" name="email" placeholder="Email..." class="form-input">
+
+            <input type="password" name="password" id="" placeholder="Password.." class="form-input">
+        
+            <button type="submit" class="sign-button">SIGN UP</button>
+        </form>
+    </div>
+</main>
+
+</html>

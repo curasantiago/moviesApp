@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+            <main class="main">
+               <%- include('../partials/search') %>
+                
+               <div class="main-detail">
+                <h1> <%= actor.first_name%></h1>
+                    <ol class="main-list-ol ol-detail">
+                        
+                        <li class="main-list-li detail-list"><i class="fas fa-trophy detail-icon"></i>Name: <%= actor.first_name %> <%= actor.last_name %></li>
+                        <li class="main-list-li detail-list"><i class="fas fa-star detail-icon"></i>Rating: <%= actor.rating %></li>
+                        <li class="main-list-li detail-list"><i class="fas fa-star detail-icon"></i>List of movies: 
+                            <ol class="main-list-ol ol-detail">
+                                
+                                <% actor.movies.forEach(actorMovie => { %>
+                                    <li class="main-list-li detail-list"><a href="/movies/detail/ <%= actorMovie.id %>"><%= actorMovie.title %> </a> </li>
+                                <% }) %>
+                            </ol>
+                        </li>
+                        
+                    </ol>
+              
+               </div>  
+                
+    
+
+</body>
+</html>

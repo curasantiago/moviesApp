@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+        <main class="main">
+            <%- include('../partials/search') %>
+                
+        
+        <div class="main-detail">
+        <h1> <%= movie.title%></h1>
+            <ol class="main-list-ol ol-detail">
+                
+                <li class="main-list-li detail-list"><i class="fas fa-star detail-icon"></i>Rating: <%= movie.rating %></li>
+                <li class="main-list-li detail-list"><i class="fas fa-trophy detail-icon"></i>Awards: <%= movie.awards %></li>
+                <li class="main-list-li detail-list"><i class="far fa-clock detail-icon"></i>Length: <%= movie.length %></li>
+                <li class="main-list-li detail-list"><i class="far fa-calendar-check detail-icon"></i>Release Date: <%= moment(movie.release_date).add(1, 'days').format('DD-MM-YYYY') %></li>
+                <li class="main-list-li detail-list"><i class="fas fa-film detail-icon"></i><a href="/movies/genres/<%= movie.genre.id %>">Genre: <%= movie.genre.name %></a></li>
+                <li class="main-list-li detail-list"><i class="fas fa-users detail-icon"></i> Actors: <% movie.actors.forEach(movieActor => { %>
+                    <a href="/movies/actors/<%= movieActor.id %>">'<%= movieActor.first_name %>  <%= movieActor.last_name %>'</a>
+                <% }) %></li>
+            </ol>
+            <% if (usuario || usuarioLogueado)  { %>
+         <div class="detail-button"> 
+            <a href="/movies/edit/<%= movie.id %>"><button class="edit-button">EDIT</button></a>
+            <form action="/movies/delete/<%= movie.id %>?_method=DELETE" method="POST">
+                <button class="edit-button" type="submit">DELETE</button>
+            </form>
+         </div>
+        <% } %>  
+
+        </div>
+    </main>
+    
+</body>
+</html>

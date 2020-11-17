@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://kit.fontawesome.com/5376d63d7e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Varela&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app-container">
+
+        <div class="container">
+
+            <header class="header">
+                <nav class="nav">
+                    <div class="nav-menu">
+                         <a href="/movies"><i class="fas fa-2x fa-bars" id="menu-icon"></i></a>
+                         <a href="/movies"><i class="fas fa-video" id="menu-logo"></i></a>
+                    </div>
+                    <div class="nav-user">
+                        <% if (usuario || usuarioLogueado)  { %>
+                            <a href="/movies"><i class="far fa-user login-icon"></i>Hello <%= usuarioLogueado.name || usuario.name %></a>
+                            <form action="/users/logout" method="POST">
+                            <i class="fas fa-sign-out-alt login-icon"></i><button type="submit" class="logout-button">LOGOUT</button></a>
+                            </form>
+                            <a href="/movies/create"><i class="fas fa-plus login-icon"></i></i>ADD MOVIE</a>
+
+                        <% } else { %>
+                        <a href="/users/login"><i class="far fa-user login-icon"></i>LOGIN</a>
+                        <a href="/users/register"><i class="fas fa-sign-in-alt login-icon" ></i>REGISTER</a>
+                        <% } %>
+                    </div>
+                    <div class="nav-features">
+
+                        <a href="/movies/new"><i class="far fa-calendar-alt features-icon"></i>NEW</a>
+                        
+                        <a href="/movies/recommended"><i class="far fa-arrow-alt-circle-up features-icon"></i>RATING</a>
+
+                        <a href="/movies/genres"><i class="fas fa-film features-icon"></i>GENRES</a>
+
+                        <a href="/movies/actors"><i class="fas fa-users detail-icon"></i>ACTORS</a>
+                    </div>
+
+                </nav>
+            </header>

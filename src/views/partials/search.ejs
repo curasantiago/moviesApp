@@ -1,0 +1,18 @@
+<div class="main-search">
+    <form action="/movies" method="POST">
+        <input type="search" name="search" id="search-input" placeholder="Search your movie..">
+        <button type="submit" id="search-button"><i class="fas fa-lg fa-search" id="search-icon"></i></button><br>
+        <div class="search-select-container">
+            <select name="order" id="" class="search-select">
+                <option value="title">TITLE</option>
+                <option value="rating">RATING</option>
+                <option value="awards">AWARDS</option>
+            </select>
+
+            <select name="direction" id="" class="search-select">
+                <option value="ASC">ASC</option>
+                <option value="DESC">DESC</option>
+            </select>
+        </div>
+    </div>
+</form>

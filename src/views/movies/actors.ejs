@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+
+            <main class="main">
+               <%- include('../partials/search') %>
+                
+                
+
+                <div class="main-list">
+                    <h1>
+                        LIST OF ACTORS:
+                    </h1>
+
+                  
+                    <% if (typeof findMovies == 'undefined') { %>
+                        
+                        <ol class="main-list-ol">
+                            <% actors.forEach(actor => { %>
+                                <div class="list-container">
+                                    <a href="/movies/actors/<%= actor.id %>"><li class="main-list-li"><i class="far fa-check-circle"></i><p><%= actor.first_name %> <%= actor.last_name %></p><button>DETAIL</button></li></a>
+                                </div>
+                            <% }) %>    
+                        </ol>
+
+                    <% } else { %>
+
+                        <ol class="main-list-ol">
+                            <% findMovies.forEach(movie => { %>
+                                <div class="list-container">
+                                    <a href="/movies/detail/<%= movie.id %>"><li class="main-list-li"><i class="far fa-check-circle"></i><p><%= movie.title %></p><button>DETAIL</button></li></a>
+                                </div>
+                            <% }) %>    
+                        </ol>
+
+                    <% } %>
+
+                </div>    
+            </main>
+
+        </div>
+            
+    </div>
+
+</body>
+</html>

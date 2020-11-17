@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Santiago",
+    "email": "santiago@gmail.com",
+    "password": "$2b$10$7qr5d7hBdEkCUa1GJLShU.hpszRAAZyDz/jDuk.8jea9/78jCXNiG"
+  },
+  {
+    "id": 2,
+    "name": "Chequeando Repeticiones",
+    "email": "check@hotmail.com",
+    "password": "$2b$10$nnV5l0D7hRRdw2utjyFWK.AIRNG1iiZmN.PgU2SRIddEKLEZ4Y9U2"
+  }
+]

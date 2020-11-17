@@ -1,0 +1,22 @@
+
+<%- include('../partials/header') %>
+
+<main class="main">
+   <%- include('../partials/search') %>
+
+    <div class="main-list">
+        <h1>RECOMMENDED BY RATING: </h1>
+            <ol class="main-list-ol">
+                <% movies.forEach(movie => { %>
+                    <div class="list-container">
+                        <a href="/movies/detail/<%= movie.id %>"><li class="main-list-li"><i class="far fa-check-circle"></i><%= movie.title %>
+                        <span class="number-rating"><%= movie.rating %></span> <button>DETAIL</button></li></a>
+                    </div>
+                <% }) %>    
+            </ol>
+
+    </div>    
+</main>
+
+</body>
+</html>
